@@ -145,4 +145,5 @@ function repeate () {
     compScore = 0;
     myScoreTable.innerHTML = myScore;
     compScoreTable.innerHTML = compScore;
+    compPlayResult.innerHTML = '';
 }
