@@ -5,14 +5,12 @@ const paperBtn = document.querySelector('.paper');
 const scissorsBtn = document.querySelector('.scissors');
 
 
-
-
-
 /* Buttons listeners */
 
 rockBtn.addEventListener('click', meRock);
 paperBtn.addEventListener('click', mePaper);
 scissorsBtn.addEventListener('click', meScissors);
+
 
 /* Other variables */
 
@@ -25,10 +23,12 @@ let score = document.querySelector('.result');
 let myScore = 0;
 let compScore = 0;
 
+
 /* Scoresheet variables */
 
 let myScoreTable = document.querySelector('.my_points');
 let compScoreTable = document.querySelector('.comp_points');
+
 
 /* Reactions to player choice */
 function meRock () {
@@ -46,6 +46,7 @@ function meScissors () {
     compPlay();
 }
 
+
 /* Computers random result */
 
 function compPlay () {
@@ -54,6 +55,7 @@ function compPlay () {
     compPlayResult.innerHTML = compResult;
     compareResult();
 }
+
 
 /* Result comparision */
 
@@ -102,7 +104,7 @@ function compareResult () {
         compScoreTable.innerHTML = compScore;
     }
 
-/* Checking if someone win the game */
+    /* Checking if someone win the game */
 
     if (myScore == 5) {
         myWin();
@@ -113,18 +115,33 @@ function compareResult () {
     };
 }
 
+
 /* Winning the Game */
 
 let victoryPage = document.querySelector('.victory');
 
 function myWin () {
     victoryPage.classList.add('visible');
-    document.querySelector('.victory').innerHTML = 'You win!';
-    
+    document.querySelector('.victory').innerHTML = 'You win! <br> <p>Click to repeat</p>';
+    let repeatBtn = document.querySelector('.visible');
+    repeatBtn.addEventListener('click', repeate);
 }
 
 function compWin () {
     victoryPage.classList.add('visible');
-    document.querySelector('.victory').innerHTML = 'You loose!';
-    
+    document.querySelector('.victory').innerHTML = 'You loose! <br> <p>Click to repeat</p>';
+
+    let repeatBtn = document.querySelector('.visible');
+    repeatBtn.addEventListener('click', repeate);
+}
+
+
+/* Game restart */
+
+function repeate () {
+    victoryPage.classList.remove('visible');
+    myScore = 0;
+    compScore = 0;
+    myScoreTable.innerHTML = myScore;
+    compScoreTable.innerHTML = compScore;
 }
