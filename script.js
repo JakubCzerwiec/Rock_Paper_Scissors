@@ -140,6 +140,7 @@ function compWin () {
 
 function repeate () {
     victoryPage.classList.remove('visible');
+    victoryPage.innerHTML = '';
     myScore = 0;
     compScore = 0;
     myScoreTable.innerHTML = myScore;
