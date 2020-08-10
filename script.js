@@ -115,10 +115,16 @@ function compareResult () {
 
 /* Winning the Game */
 
+let victoryPage = document.querySelector('.victory');
+
 function myWin () {
+    victoryPage.classList.add('visible');
     document.querySelector('.victory').innerHTML = 'You win!';
+    
 }
 
 function compWin () {
+    victoryPage.classList.add('visible');
     document.querySelector('.victory').innerHTML = 'You loose!';
+    
 }
